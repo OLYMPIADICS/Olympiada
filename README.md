@@ -22,4 +22,7 @@ https://5ak5vbax5fkhi.ok.kimi.link/
 - Учащиеся, заинтересованные в олимпиадах и конкурсах  
 - Участники хакатонов и научных проектов  
 
- 
+## Используемые технологии
+- Firebase  hosting
+- HTML / CSS / JavaScript  
+- GitHub
