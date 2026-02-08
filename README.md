@@ -30,3 +30,8 @@ https://5ak5vbax5fkhi.ok.kimi.link/
 - элементы фильтрации и поиска;
 - вспомогательные информационные блоки.
 
+## # Презентация проекта
+Презентация проекта доступна по ссылке:
+https://www.canva.com/design/DAHAoawrVD8/d5-eLoTGKHfkQcyIGuFEJw/edit
+
+
