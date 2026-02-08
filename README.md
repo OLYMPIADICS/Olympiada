@@ -1,39 +1,73 @@
-# Olympiada
-Данный сайт представляет собой онлайн-платформу, предназначенную для сбора и удобного отображения информации об олимпиадах, конкурсах, хакатонах, стартапах и других образовательных мероприятиях. Пользователь может просматривать мероприятия, получать подробную информацию, фильтровать и искать события по категориям, срокам и предметным направлениям.
-# Online Events Platform
+# React + TypeScript + Vite
 
-## Ссылка на сайт
-https://5ak5vbax5fkhi.ok.kimi.link/
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-##  Описание проекта
-Данный проект представляет собой веб-сайт, предназначенный для удобного поиска и просмотра информации об олимпиадах, конкурсах, хакатонах, стартапах и других образовательных мероприятиях.
+Currently, two official plugins are available:
 
-Сайт разработан с нуля в рамках конкурса и направлен на помощь учащимся в выборе подходящих мероприятий по интересам и предметным направлениям.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Основной функционал сайта
-- Просмотр списка образовательных мероприятий  
-- Получение подробной информации о каждом событии  
-- Фильтрация и поиск мероприятий по категориям и направлениям  
-- Отображение сроков проведения и дедлайнов  
-- Удобный и понятный пользовательский интерфейс  
+## React Compiler
 
-## Целевая аудитория
-- Школьники  
-- Учащиеся, заинтересованные в олимпиадах и конкурсах  
-- Участники хакатонов и научных проектов  
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Используемые технологии
-- Firebase  hosting
-- HTML / CSS / JavaScript  
-- GitHub
+## Expanding the ESLint configuration
 
-##  Цель проекта
-Целью проекта является создание удобной онлайн-платформы, которая помогает школьникам быстро находить подходящие олимпиады, конкурсы и другие образовательные мероприятия, а также ориентироваться в сроках и требованиях участия.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Структура сайта
-Сайт состоит из нескольких логических разделов:
-- главная страница с общей информацией и списком мероприятий;
-- страница с подробным описанием выбранного события;
-- элементы фильтрации и поиска;
-- вспомогательные информационные блоки.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
